@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Odin Project: Weather App</title>
+</head>
+
+<body>
+    <main class="main-container">
+        <header>
+            <div class="logo-icon-container">
+                <i class="fa-solid fa-cloud-sun icon"></i>
+            </div>
+            <h1>
+                WeatheringCloud
+            </h1>
+        </header>
+
+        <div class="search-container">
+            <form id="search-form" novalidate autocomplete="off">
+                <input type="input" id="search-item" name="search-item" placeholder="Search Location" minlength="3"
+                    maxlength="200" required />
+                <button type="submit" id="btn-submit-search"><i class="fa-solid fa-magnifying-glass icon"></i></button>
+            </form>
+            <br>
+            <span id="search-error" class="error"></span>
+        </div>
+
+        <div class="summary-container">
+            <div class="location-summary">
+                <h2 id="location-title"></h2>
+                <h3 id="location-region"></h3>
+                <small id="location-date"></small>
+                <br>
+                <small id="location-time"></small>
+                <br>
+                <br>
+                <div><i id="day-night-icon" class="fa-solid icon"></i></div>
+            </div>
+            <div class="summary">
+                <h3 id="location-condition"></h3>
+                <div class="location-image-container">
+                    <img id="location-image" src="#" />
+                </div>
+                <div>
+                    <h2 id="location-temperature"></h2>
+                    <button id="btn-switch-temp"><i class="fa-solid fa-repeat icon"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics-container">
+            <div>
+                <div>
+                    <div><i class="fa-solid fa-temperature-three-quarters"></i></div>
+                    <div>
+                        <h3>Feels Like</h3>
+                        <h2 id="location-feels-like"></h2>
+                    </div>
+                </div>
+                <div>
+                    <div><i class="fa-solid fa-droplet"></i></div>
+                    <div>
+                        <h3>Humidity</h3>
+                        <h2 id="location-humidity"></h2>
+                    </div>
+                </div>
+                <div>
+                    <div><i class="fa-solid fa-cloud-showers-water"></i></div>
+                    <div>
+                        <h3>Chance of Rain</h3>
+                        <h2 id="location-chance-rain"></h2>
+                    </div>
+                </div>
+                <div>
+                    <div><i class="fa-solid fa-wind"></i></div>
+                    <div>
+                        <h3>Wind Speed</h3>
+                        <h2 id="location-wind-speed"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="forecast-container">
+            <div id="forecast-switch-container" class="forecast-switch-container">
+                <button id="btn-switch-daily" class="active">
+                    Daily
+                </button>
+                <button id="btn-switch-hourly">
+                    Hourly
+                </button>
+            </div>
+            <br>
+            <div id="forecast-daily-container" class="forecast-daily-container">
+                <div class="forecast-day-container">
+                    <h3 id="forecast-day-one-day"></h3>
+                    <h2 id="forecast-day-one-temperature-high"></h2>
+                    <small id="forecast-day-one-temperature-low"></small>
+                    <h3 id="forecast-day-one-condition"></h3>
+                    <img id="forecast-day-one-image" src="#">
+                </div>
+                <div class="forecast-day-container">
+                    <h3 id="forecast-day-two-day"></h3>
+                    <h2 id="forecast-day-two-temperature-high"></h2>
+                    <small id="forecast-day-two-temperature-low"></small>
+                    <h3 id="forecast-day-two-condition"></h3>
+                    <img id="forecast-day-two-image" src="#">
+                </div>
+                <div class="forecast-day-container">
+                    <h3 id="forecast-day-three-day"></h3>
+                    <h2 id="forecast-day-three-temperature-high"></h2>
+                    <small id="forecast-day-three-temperature-low"></small>
+                    <h3 id="forecast-day-three-condition"></h3>
+                    <img id="forecast-day-three-image" src="#">
+                </div>
+            </div>
+            <div id="forecast-hourly-container" class="forecast-hourly-container">
+                <div class="forecast-hourly-third" id="forecast-hourly-third-one">
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                </div>
+                <div class="forecast-hourly-third" id="forecast-hourly-third-two">
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                </div>
+                <div class="forecast-hourly-third" id="forecast-hourly-third-three">
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                    <div class="forecast-hour-container">
+                        <h3 class="forecast-hour"></h3>
+                        <h2 class="forecast-hour-temperature"></h2>
+                        <h3 class="forecast-hour-condition"></h3>
+                        <img class="forecast-hour-image" src="#" />
+                    </div>
+                </div>
+                <div class="forecast-hourly-third-circles">
+                    <div class="third-circle"><i class="fa-solid fa-circle icon"></i></div>
+                    <div class="third-circle"><i class="fa-regular fa-circle icon"></i></div>
+                    <div class="third-circle"><i class="fa-regular fa-circle icon"></i></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="opacity-cover">
+
+    </div>
+
+    <div id="condition-background" class="background">
+
+    </div>
+
+    <div id="condition-background-temp" class="background">
+
+    </div>
+
+    <footer>
+        <p>Kyle Keene-Welch © 2023</p>
+        <a href="https://github.com/KyleKeeneWelch"><i class="fa-brands fa-github icon" aria-hidden="true"></i></a>
+    </footer>
+</body>
+
+</html>

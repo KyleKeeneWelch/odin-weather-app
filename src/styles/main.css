@@ -1,0 +1,423 @@
+/* Default Styles */
+:root {
+    --color-main: #279af1;
+    --color-secondary: #60656f;
+    --color-background: #131112;
+    --black: #000;
+    --white: #FFF;
+    --valid-color: #9DF148;
+    --error-color: #e22121;
+    --border-radius: 8px;
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 40px;
+    --box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@font-face {
+    font-family: 'Techfont';
+    src: url('../assets/Techfont.ttf') format('truetype');
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main-container {
+    padding: var(--spacing-xl);
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 50px 3fr 2fr 50px;
+    height: 100%;
+    width: 100%;
+
+    & header {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    & .search-container {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    & .summary-container {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    & .statistics-container {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+
+    & .forecast-container {
+        grid-column: 1 / -1;
+        grid-row: 4 / 5;
+    }
+}
+
+body {
+    background: darkgray;
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    word-wrap: break-word;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: 'Techfont', Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    
+    & svg {
+        transition: 300ms ease-in-out;
+    }
+
+    &:hover svg {
+        color: var(--color-main);
+    }
+}
+
+.logo-icon-container {
+    float: left;
+
+    & svg {
+        font-size: 72px;
+    }
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & form {
+        border-bottom: 1px solid var(--color-main);
+    }
+
+    & form input {
+        background-color: transparent;
+        color: var(--white);
+        font-size: 18px;
+        padding: var(--spacing-sm);
+        border: none;
+        outline: none;
+    }
+}
+
+.summary-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+
+    & .location-summary div svg {
+        font-size: 60px;
+    }
+
+    & .summary div {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+}
+
+.statistics-container {
+    display: flex;
+    justify-content: end;
+
+    & > div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        & svg {
+            font-size: 40px;
+        }
+
+        & > div {
+            display: grid;
+            grid-template-columns: 70px 2fr;
+            align-items: center;
+
+            & div:first-of-type {
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    & .forecast-switch-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--spacing-md);
+
+        & button {
+            color: var(--white);
+            font-size: 20px;
+            transition: 300ms ease-in-out;
+            padding: var(--spacing-xs);
+
+            &:hover {
+                color: var(--color-main);
+            }
+
+            &.active {
+                color: var(--color-main);
+            }
+        }
+    }
+
+    & .forecast-daily-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+    }
+
+    & .forecast-hourly-container {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        & .forecast-hourly-third {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+        }
+
+        & div.forecast-hourly-third-circles {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: var(--spacing-sm);
+            
+            & .third-circle {
+                
+                & svg {
+                    transition: 300ms ease-in-out;
+                    font-size: 15px;
+                }
+                
+                &:hover svg {
+                    color: var(--color-main);
+                }
+            }
+        }
+    }
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
+
+    &:last-of-type {
+        z-index: -3;
+    }
+}
+
+.opacity-cover {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+footer {
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: var(--spacing-sm);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.error {
+    font-size: 16px;
+    text-align: center;
+    color: var(--error-color);
+    font-weight: 400;
+    display: none;
+}
+
+.active {
+    display: inline-block;
+}
+
+.icon {
+    color: var(--white);
+    font-size: 20px;
+}
+
+.fa-github {
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+@media only screen and (max-width: 700px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-sm);
+
+        & header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .summary-container {
+        text-align: center;
+
+        & .summary div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .statistics-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        & > div {
+            width: 100%;
+
+            & div {
+                display: grid;
+                grid-template-columns: 2fr 3fr;
+                justify-content: center;
+                align-items: center;
+
+                & h3 {
+                    font-size: 15px;
+                }
+
+                & div svg {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    button {
+        font-size: 15px !important;
+    }
+
+    .forecast-daily-container {
+        gap: var(--spacing-sm);
+        overflow: auto;
+
+        & .forecast-day-container {
+            min-width: 30%;
+            align-self: start;
+
+            & h3 {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .forecast-hourly-third {
+        overflow: auto;
+        gap: var(--spacing-sm);
+        align-items: start !important;
+        justify-content: start !important;
+
+        & .forecast-hour-container {
+
+            & h3 {
+                font-size: 15px;
+            }
+    
+            & h2 {
+                font-size: 20px;
+            }
+    
+            & img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+  }

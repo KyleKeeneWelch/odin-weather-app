@@ -1,0 +1,40 @@
+{
+  "name": "odin-weather-app",
+  "version": "1.0.0",
+  "description": "Simple Weather App using Weather API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "server": "node server.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleKeeneWelch/odin-weather-app.git"
+  },
+  "keywords": [
+    "Weather"
+  ],
+  "author": "Kyle Keene-Welch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyleKeeneWelch/odin-weather-app/issues"
+  },
+  "homepage": "https://github.com/KyleKeeneWelch/odin-weather-app#readme",
+  "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "babel-loader": "^9.1.3",
+    "html-webpack-plugin": "^5.5.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "date-fns": "^2.30.0",
+    "style-loader": "^3.3.3"
+  }
+}
